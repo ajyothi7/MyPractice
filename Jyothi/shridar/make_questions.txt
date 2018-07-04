@@ -1,0 +1,13 @@
+Note: Other than these questions one question will be of writing makefile using dependency graph.
+
+1. How make processes makefile?
+2. What make file contains?
+3. Using automatic variables in makefile, write a program to implement simple arithematic operations.
+4. How make deduces recipe? Explain with example.
+5. What are two flavours of make, how do they differ from each other? Explain with example.
+6. Differentiate between VPATH and vpath with example.
+7. What are phony targets? Why are the required?
+8. Breif about recurssive make with example.
+
+
+		
