@@ -1,0 +1,1 @@
+cmd_/home/jyothi/Training/Domain/Mahantesh/MMAP/kmmap/mmap.ko := ld -r -m elf_i386 -T ../scripts/module-common.lds --build-id  -o /home/jyothi/Training/Domain/Mahantesh/MMAP/kmmap/mmap.ko /home/jyothi/Training/Domain/Mahantesh/MMAP/kmmap/mmap.o /home/jyothi/Training/Domain/Mahantesh/MMAP/kmmap/mmap.mod.o ;  true
