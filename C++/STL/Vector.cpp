@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -77,6 +78,170 @@ int main(void)
 	for(auto itr : v2)
 		cout << itr << " ";
 	cout << endl;
+
+	v1.insert(v1.begin(), 100);
+	for(auto itr : v1)
+		cout << itr << " ";
+	cout << endl;
+
+	v1.insert(v1.begin() + 1, 2, 200);
+	for(auto itr : v1)
+		cout << itr << " ";
+	cout << endl;
+
+	v1.insert(v1.begin() + 1, v2.begin(), v2.end());
+	for(auto itr : v1)
+		cout << itr << " ";
+	cout << endl;
+
+	v1.insert(v1.begin() + 2, arr, arr+2);
+	for(auto itr : v1)
+		cout << itr << " ";
+	cout << endl;
+
+	v1.erase(v1.begin() + 2);
+	for(auto itr : v1)
+		cout << itr << " ";
+	cout << endl;
+
+	v1.erase(v1.begin(), v1.begin() + 5);
+	for(auto itr : v1)
+		cout << itr << " ";
+	cout << endl;
+
+	v1.swap(v2);
+
+	for(auto itr : v1)
+		cout << itr << " ";
+	cout << endl;
+
+	for(auto itr : v2)
+		cout << itr << " ";
+	cout << endl;
+
+	cout << "max_size() of vector : " << v1.max_size() << endl;
+	cout << "max_size() of vector : " << v2.max_size() << endl;
+
+	cout << "before resize()" << endl;
+	cout << "size() of vector : " << v1.size() << endl;
+	cout << "size() of vector : " << v2.size() << endl;
+
+	v1.resize(10);
+	v2.resize(5);
+
+	cout << "after resize()" << endl;
+	cout << "size() of vector : " << v1.size() << endl;
+	cout << "size() of vector : " << v2.size() << endl;
+
+	for(auto itr : v1)
+		cout << itr << " ";
+	cout << endl;
+
+	for(auto itr : v2)
+		cout << itr << " ";
+	cout << endl;
+
+	cout << "capacity() of vector1 : " << v1.capacity() << endl;
+	cout << "capacity() of vector2 : " << v2.capacity() << endl;
+
+	v1.reserve(20);
+	v2.reserve(25);
+
+	cout << "capacity() of vector1 : " << v1.capacity() << endl;
+	cout << "capacity() of vector2 : " << v2.capacity() << endl;
+
+	for(auto itr : v1)
+		cout << itr << " ";
+	cout << endl;
+
+	for(auto itr : v2)
+		cout << itr << " ";
+	cout << endl;
+
+	v1.shrink_to_fit();
+	v2.shrink_to_fit();
+
+	cout << "capacity() of vector1 : " << v1.capacity() << endl;
+	cout << "capacity() of vector2 : " << v2.capacity() << endl;
+
+	for(auto itr : v1)
+		cout << itr << " ";
+	cout << endl;
+
+	for(auto itr : v2)
+		cout << itr << " ";
+	cout << endl;
+
+	for(int itr = 0; itr < v1.size(); itr++)
+		v1[itr] = rand() % 100;
+
+	for(auto itr : v1)
+		cout << itr << " ";
+	cout << endl;
+
+	v1.insert(v1.end(), v2.begin(), v2.end());
+
+	for(auto itr : v1)
+		cout << itr << " ";
+	cout << endl;
+
+	sort(v1.begin(), v1.end());
+	for(auto itr : v1)
+		cout << itr << " ";
+	cout << endl;
+
+	cout << "max_element : " << *(max_element(v1.begin(), v1.end())) << endl;
+	cout << "min_element : " << *(min_element(v1.begin(), v1.end())) << endl;
+
+	reverse(v1.begin(), v1.end());
+	for(auto itr : v1)
+		cout << itr << " ";
+	cout << endl;
+
+	int sum = 0;
+
+	sum = accumulate(v1.begin(), v1.end(), sum);
+
+	cout << "sum : " << sum << endl;
+
+	vector<int> v3(v1.size() + v2.size());
+
+	vector<int> :: iterator end, itr;
+
+	sort(v1.begin(), v1.end());
+	sort(v2.begin(), v2.end());
+
+	end = set_union(
+		  			v1.begin(), v1.end(),
+					v2.begin(), v2.end(),
+					v3.begin());
+
+	for(auto itr : v3)
+		cout << itr << " ";
+	cout << endl;
+
+	vector<int> v4(v1.size() + v2.size());
+
+	end = set_intersection(
+		  			v1.begin(), v1.end(),
+					v2.begin(), v2.end(),
+					v4.begin());
+
+	for(itr = v4.begin(); itr != end; itr++)
+		cout << *itr << " ";
+	cout << endl;
+
+	itr = find(v4.begin(), v4.end(), 10);
+	if(itr != v4.end())
+		cout << *itr << " element found" << endl;
+	else
+		cout << "element not found" << endl;
+	
+	itr = find(v4.begin(), v4.end(), 100);
+	if(itr != v4.end())
+		cout << *itr << "found" << endl;
+	else
+		cout << "element not found" << endl;
 	
 	return 0;
 }
