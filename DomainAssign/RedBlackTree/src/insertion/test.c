@@ -10,17 +10,20 @@ int main(void)
 //	NODE *root = NULL;
 //	NODE *temp = NULL;
 
-	if(NULL == (nullNode = malloc(sizeof(NODE)))){
+	if(NULL == (nullNode = malloc(sizeof(NODE))))
+	{
 		printf("no memory available\n");
 		return EXIT_FAILURE;
 	}
+
 	nullNode -> color = BLACK;
 	nullNode -> left = NULL;
 	nullNode -> right = NULL;
 	nullNode -> parent = NULL;	
 	root = nullNode;
 
-	while(status != 'n'){
+	while(status != 'n')
+	{
 		printf("1. insert\n"
 				"2. delete\n"
 				"3. display\n"
@@ -34,10 +37,13 @@ int main(void)
 						printf("enter the data to be inserted: ");
 						data = readInput();
 					
-						if(NULL == insertNode(data)){
+						if(NULL == insertNode(data))
+						{
 							printf("insertion failed\n");
 					
-						}else{
+						}
+						else
+						{
 							printf("insertion success\n");
 						}
 
